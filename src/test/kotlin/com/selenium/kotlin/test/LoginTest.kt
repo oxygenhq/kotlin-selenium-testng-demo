@@ -2,7 +2,9 @@ package com.selenium.kotlin.test
 
 import com.selenium.kotlin.page.HomePage
 import com.selenium.kotlin.page.LoginPage
+import io.cloudbeat.testng.CbTestNGListener
 import org.testng.Assert
+import org.testng.annotations.Listeners
 import org.testng.annotations.Test
 
 /**
@@ -14,6 +16,7 @@ import org.testng.annotations.Test
  * Description     : This is login test class
  **/
 
+@Listeners(CbTestNGListener::class)
 class LoginTest : TestBase() {
 
     private val validEmail = "osanda@mailinator.com"

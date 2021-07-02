@@ -14,9 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>1.3.71</kotlin.version>
         <kotlin.code.style>official</kotlin.code.style>
-        <testng.version>6.8.8</testng.version>
-        <selenium.version>3.14.0</selenium.version>
-        <bonigarcia.version>3.7.1</bonigarcia.version>
+        <testng.version>7.4.0</testng.version>
+        <selenium.version>3.141.59</selenium.version>
+        <bonigarcia.version>4.4.3</bonigarcia.version>
     </properties>
 
     <repositories>
@@ -28,9 +28,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.github.oxygenhq</groupId>
+            <groupId>io.cloudbeat.framework</groupId>
             <artifactId>cb-framework-plugin-testng</artifactId>
-            <version>0.10.2</version>
+            <version>0.10.4</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -64,10 +64,16 @@
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/kotlin</sourceDirectory>
+        <!--<sourceDirectory>src/main/kotlin</sourceDirectory>-->
         <testSourceDirectory>src/test/kotlin</testSourceDirectory>
 
         <plugins>
