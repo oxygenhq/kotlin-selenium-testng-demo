@@ -24,8 +24,7 @@ class LoginTest : TestBase() {
     private val loginPageTitle = "Login - My Store"
     private val myAccountPageTitle = "My account - My Store"
 
-
-    @Test
+    @Test(groups = ["successfull_tests"])
     fun validLogin() {
         waitForPageLoad(driver)
         val homePage = HomePage(driver)
@@ -36,7 +35,7 @@ class LoginTest : TestBase() {
         Assert.assertEquals(getPageTitle(),myAccountPageTitle)
     }
 
-    @Test
+    @Test(groups = ["failing_tests"])
     fun invalidLogin() {
         waitForPageLoad(driver)
         val homePage = HomePage(driver)
