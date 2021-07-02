@@ -29,24 +29,40 @@ class LoginTest : TestBase() {
 
     @Test(groups = ["successfull_tests"])
     fun validLogin() {
-        waitForPageLoad(driver)
-        val homePage = HomePage(driver)
-        homePage.clickOnSignInButton()
-        waitForPageLoad(driver)
-        val loginPage = LoginPage(driver)
-        loginPage.login(validEmail, validPassword)
-        Assert.assertEquals(getPageTitle(),myAccountPageTitle)
+        CbTestNGListener.step("Wait for browser to open") {
+            waitForPageLoad(driver)
+        }
+
+        CbTestNGListener.step("Click on \"Sign In\" button") {
+            val homePage = HomePage(driver)
+            homePage.clickOnSignInButton()
+            waitForPageLoad(driver)
+        }
+
+        CbTestNGListener.step("Log in") {
+            val loginPage = LoginPage(driver)
+            loginPage.login(validEmail, validPassword)
+            Assert.assertEquals(getPageTitle(), myAccountPageTitle)
+        }
     }
 
     @Test(groups = ["failing_tests"])
     fun invalidLogin() {
-        waitForPageLoad(driver)
-        val homePage = HomePage(driver)
-        homePage.clickOnSignInButton()
-        waitForPageLoad(driver)
-        val loginPage = LoginPage(driver)
-        loginPage.login(invalidEmail, invalidPassword)
-        Assert.assertEquals(getPageTitle(),loginPageTitle)
+        CbTestNGListener.step("Wait for browser to open") {
+            waitForPageLoad(driver)
+        }
+
+        CbTestNGListener.step("Click on \"Sign In\" button") {
+            val homePage = HomePage(driver)
+            homePage.clickOnSignInButton()
+            waitForPageLoad(driver)
+        }
+
+        CbTestNGListener.step("Log in") {
+            val loginPage = LoginPage(driver)
+            loginPage.login(invalidEmail, invalidPassword)
+            Assert.assertEquals(getPageTitle(), loginPageTitle)
+        }
     }
 
 
